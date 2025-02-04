@@ -33,7 +33,36 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    // array of word
+    char[] letterArray = sentence.toCharArray();
+    // count for every change case
+    int count = 1;
+    // storage for new word
+    String newWord = "";
+    
+    // going through and changing the cases for the letters
+    for(int i = 0; i < letterArray.length; i++) {
+      //System.out.println(i);
+      // setting up new start if there is a space
+      if(letterArray[i] == ' ') {
+        newWord = newWord + letterArray[i];
+        count = 1;
+      }
+      // setting odd number to lower case
+      else if(count % 2 == 1) {
+        //System.out.println(count % 2);
+        //System.out.println(Character.toLowerCase(letterArray[i]));
+        newWord = newWord + Character.toLowerCase(letterArray[i]);
+        count++;
+      }
+      // setting even number to upper case
+      else{
+        //System.out.println(count % 2);
+        newWord = newWord + Character.toUpperCase(letterArray[i]);
+        count++;
+      }
+    }
+    return newWord;
   }
 
 
