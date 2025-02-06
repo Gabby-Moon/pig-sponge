@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pig {
 
     /*
@@ -26,7 +29,33 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        // seperate string by spaces
+        String[] words = sentence.split(" ");
+        String newSentance = "";
+        int counter = 0;
+        //check if start with vowel
+        for(String word : words){
+            String newWord = "";
+            if(!word.startsWith("a") && !word.startsWith("e") && !word.startsWith("i") && !word.startsWith("o") && !word.startsWith("u")){
+                // take starting letter and put it at the end
+                newWord = word.substring(1, word.length()) + word.substring(0, 1);
+                //adding 'ay' to the end
+                newWord = newWord + "ay";
+            }
+            else{
+                // do nothing
+                newWord = word;
+            }
+            if(counter > 0){
+                newSentance = newSentance + " " + newWord;
+            }
+            else{
+                newSentance = newWord;
+                counter++;
+            }
+            
+        }
+        return newSentance;
     }
 
 
